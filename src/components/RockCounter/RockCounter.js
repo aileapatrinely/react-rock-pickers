@@ -14,6 +14,11 @@ class RockCounter extends Component {
       value: this.state.value - 1,
     });
   };
+  clickReset = () => {
+    this.setState({
+      value: 0,
+    });
+  };
   render() {
     return (
       <div>
@@ -21,7 +26,7 @@ class RockCounter extends Component {
         <div>
           <button onClick={this.clickIncrease}>Increase</button>
           <button onClick={this.clickDecrease}>Decrease</button>
-          <button>Reset</button>
+          <button onClick={this.clickReset}>Reset</button>
         </div>
       </div>
     );
