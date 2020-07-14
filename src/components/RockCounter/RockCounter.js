@@ -5,14 +5,27 @@ class RockCounter extends Component {
     value: 0,
   };
   clickIncrease = () => {
-    this.setState({
-      value: this.state.value + 1,
-    });
+    if (this.state.value >= 49) {
+      this.setState({
+        value: this.state.value + 1,
+        done: 'Done',
+      });
+    } else {
+      this.setState({
+        value: this.state.value + 1,
+      });
+    }
   };
   clickDecrease = () => {
-    this.setState({
-      value: this.state.value - 1,
-    });
+    if (this.state.value > 0) {
+      this.setState({
+        value: this.state.value - 1,
+      });
+    } else {
+      this.setState({
+        value: 0,
+      });
+    }
   };
   clickReset = () => {
     this.setState({
@@ -22,7 +35,9 @@ class RockCounter extends Component {
   render() {
     return (
       <div>
-        <div>Rocks Picked: {this.state.value}</div>
+        <div>
+          Rocks Picked: {this.state.value} {this.state.done}
+        </div>
         <div>
           <button onClick={this.clickIncrease}>Increase</button>
           <button onClick={this.clickDecrease}>Decrease</button>
