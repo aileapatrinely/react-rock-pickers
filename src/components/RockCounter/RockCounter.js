@@ -15,6 +15,7 @@ class RockCounter extends Component {
         value: this.state.value + 1,
       });
     }
+    this.props.addUp();
   };
   clickDecrease = () => {
     if (this.state.value > 0) {
@@ -26,6 +27,7 @@ class RockCounter extends Component {
         value: 0,
       });
     }
+    this.props.sub();
   };
   clickReset = () => {
     this.setState({
